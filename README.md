@@ -1,90 +1,127 @@
 # Repository for labs from Web-technologies-and-web-design
 ## Pastukh Rostyslav ІР-23
 
-# React.js: Item Page
+# React.js: Connecting to REST API
 
 ## Description
-In this task, you will expand your React application by adding an **Item Page** that displays detailed information for a specific item. Additionally, you will enhance the **Home Page** and **Catalog Page** to make them more interactive, following the provided wireframes.
+In this final stage, you will complete your React application by connecting it to a REST API backend. This includes adding functionality to interact with the server for data fetching and updating. The products or entities being used should remain consistent with previous works.
 
-The products or entities that you are displaying should be consistent with those from previous assignments (refer to the description in the third work).
+You may use an existing backend server from your previous assignments (3-5) or create a new one from scratch. The tech stack for the backend is up to you.
 
 ## Requirements
 
 ### General Requirements
-- **Keep all previous requirements** from earlier React.js tasks, including the Catalog Page and Home Page functionalities.
+- **Maintain all previous requirements** from earlier React.js assignments, including the Item, Home, and Catalog pages.
 
 ### Code Style
-1. **State and Context Management**:
-   - Store your items inside the **state** or **context** of your page. You can choose between using state or context for data management.
-     - [React State Documentation](https://uk.reactjs.org/docs/hooks-state.html)
-     - [React Context Documentation](https://uk.reactjs.org/docs/hooks-reference.html#usecontext)
-   
-2. **Functional Components**:
-   - Use the `useState()` hook for managing state in **functional components** instead of `this.state` in class components.
-     - Example:
-       ```jsx
-       import React, { useState } from 'react';
-
-       function ExampleComponent() {
-         const [items, setItems] = useState([]);
-         return <div>{/* Your component code */}</div>;
-       }
-       ```
-   
-   - If you choose to use **context**, use the `useContext()` hook instead of `Context.Consumer`.
-     - Learn more: [React useContext Hook](https://www.robinwieruch.de/react-usecontext-hook)
-     - Example:
-       ```jsx
-       import React, { useContext } from 'react';
-
-       const MyContext = React.createContext();
-
-       function ExampleComponent() {
-         const contextValue = useContext(MyContext);
-         return <div>{contextValue}</div>;
-       }
-       ```
-
-### Functionality (IMPORTANT)
-
-1. **Home Page**:
-   - Add a **“View more”** button that displays more elements on the same page.
-     - These elements can be simple content like random paragraphs or headings—use your imagination.
-
-2. **Catalog Page**:
-   - **Filtering Items**:
-     - Implement a filtering functionality that allows users to filter the items list by different properties (e.g., size, color, type).
-   
-   - **Search Items**:
-     - Add a **search** functionality that allows users to search items based on any text property (e.g., name, description).
-   
-   - **View More Action**:
-     - Add a **“View more”** action for each item, which should link to the corresponding **Item Page** with detailed information about that item.
-     - Ensure the correct data is loaded by retrieving it from your state or context.
-
-3. **Item Page**:
-   - Create an **Item Page** that displays all detailed information about the selected item.
-   - Retrieve the item data from the state or context to ensure that the information is accurate and specific to the selected item.
-
-## Notes
-- **Routing Setup**:
-  - Ensure your routing setup allows seamless navigation between the **Home Page**, **Catalog Page**, and the **Item Page**.
-  - You can use `react-router-dom` for managing page routing.
+1. **HTTP Requests with Axios**:
+   - Use the `axios` library for all HTTP requests.
+   - To install axios, run:
+     ```bash
+     npm install axios
+     ```
+   - [Axios Documentation](https://github.com/axios/axios#installing)
   
-- **Example for Routing**:
-  Create routes that include individual item details:
-  ```jsx
-  import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+2. **API Functions Separation**:
+   - All API-related functions should be moved to a single file or a folder.
+   - This separation helps keep the code organized, similar to how it was done in **Lab 5 live coding** using `fetch()`.
+   - Example structure:
+     ```
+     src/
+       api/
+         itemApi.js
+     ```
+   - Example `itemApi.js`:
+     ```jsx
+     import axios from 'axios';
 
-  function App() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/catalog" component={CatalogPage} />
-          <Route path="/item/:itemId" component={ItemPage} />
-        </Switch>
-      </Router>
-    );
-  }
+     const BASE_URL = 'http://localhost:5000'; // Replace with your backend server's URL
 
+     export const getItems = () => axios.get(`${BASE_URL}/items`);
+     export const getItemById = (id) => axios.get(`${BASE_URL}/items/${id}`);
+     export const searchItems = (filters) => axios.get(`${BASE_URL}/items`, { params: filters });
+     ```
+
+### Functionality
+
+1. **Catalog Page**:
+   - **Fetch All Items**:
+     - All items should be fetched from the backend using the `GET` method via axios.
+     - Example usage:
+       ```jsx
+       import React, { useEffect, useState } from 'react';
+       import { getItems } from '../api/itemApi';
+       import Loader from '../components/Loader';
+
+       function CatalogPage() {
+         const [items, setItems] = useState([]);
+         const [loading, setLoading] = useState(true);
+
+         useEffect(() => {
+           getItems()
+             .then((response) => {
+               setItems(response.data);
+               setLoading(false);
+             })
+             .catch((error) => {
+               console.error("Error fetching items:", error);
+               setLoading(false);
+             });
+         }, []);
+
+         if (loading) {
+           return <Loader />;
+         }
+
+         return (
+           <div className="catalog-page">
+             {/* Render items list */}
+           </div>
+         );
+       }
+
+       export default CatalogPage;
+       ```
+
+2. **Search with Filters**:
+   - The **search functionality** on the Catalog Page should be implemented with a `GET` request to fetch filtered items from the backend.
+   - Pass filters as URL parameters to the backend.
+   - Example:
+     ```jsx
+     const searchItems = (filters) => axios.get(`${BASE_URL}/items`, { params: filters });
+
+     // Usage in CatalogPage
+     const handleSearch = (filters) => {
+       searchItems(filters)
+         .then((response) => setItems(response.data))
+         .catch((error) => console.error("Error searching items:", error));
+     };
+     ```
+
+3. **Loader (Spinner) Component**:
+   - Before receiving a response from the **GET** request, display a **Loader (Spinner)** component to indicate to the user that data is being loaded.
+   - You can use a loader similar to [these examples](https://projects.lukehaas.me/css-loaders/).
+   - Create a simple `Loader` component:
+     ```jsx
+     import React from 'react';
+     import './Loader.css'; // CSS for spinner
+
+     function Loader() {
+       return <div className="loader">Loading...</div>;
+     }
+
+     export default Loader;
+     ```
+   - Include the Loader component in any component where data fetching is required.
+
+### Additional Notes
+- **State Management**:
+  - Continue using **useState** or **useContext** for state management.
+  
+- **UI/UX Enhancements**:
+  - Ensure that the user interface updates dynamically as data is fetched from the backend.
+
+- **Error Handling**:
+  - Implement proper error handling for axios requests to handle cases like network errors or failed API calls.
+
+By following these guidelines, you will have successfully connected your frontend React app to a REST API, making it fully functional and capable of dynamic data interaction. This final step will make your e-commerce application complete and ready for real-world use.

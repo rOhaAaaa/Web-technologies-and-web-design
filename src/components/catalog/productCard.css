@@ -14,7 +14,6 @@
   background: linear-gradient(135deg, #fbfbfb, #fb71a2); 
 }
 
-
 .product-card:hover {
   transform: scale(1.05); 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
@@ -74,7 +73,6 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
 .product-card button:hover {
   background-color: #c21858;
   transform: translateY(-3px); 
@@ -86,4 +84,3 @@
   flex-wrap: wrap;
   gap: 20px;
 }
-

@@ -60,7 +60,7 @@ const ProductSlider = () => {
             image: blushesImage
         },
         {
-            id: 5,
+            id: 19,
             title: "Lipsticks",
             description: "Our assortment includes high-quality lipsticks of various shades that are suitable for any skin type. Lipsticks give the lips a rich color, provide moisture and comfort throughout the day. Choose the perfect shade to create your unique look.",
             image: lipsticksImage
@@ -72,13 +72,13 @@ const ProductSlider = () => {
             image: glossesImage
         },
         {
-            id: 7,
+            id: 14,
             title: "Perfumes",
             description: "Our collection of perfumes offers a wide variety of scents for every occasion. From light and floral daytime fragrances to deep and sensual evening scents, our perfumes are designed to complement your unique personality and style. Discover the perfect fragrance that resonates with you.",
             image: perfumesImage
         },
         {
-            id: 8,
+            id: 9,
             title: "Creams",
             description: "Explore our selection of nourishing creams designed to hydrate, protect, and revitalize your skin. Whether you're looking for daily moisturizers, anti-aging treatments, or specialized creams for sensitive skin, our range offers solutions for every skin type and concern.",
             image: creamsImage
