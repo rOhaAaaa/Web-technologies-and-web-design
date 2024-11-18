@@ -1,0 +1,199 @@
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.header__ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    padding-top: 35px;
+    color: #202336;
+    font-weight: 500;
+    overflow-x: hidden;
+}
+.header__ul .home a {
+    color: #202336;
+    font-family: "Inter",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header__ul a {
+    font-family: "Inter",sans-serif;
+    text-decoration: none;
+    color:#B8BECD;
+    font-size: 16px;
+}
+
+.header__ul a:hover{
+    font-weight: 500;
+    color: #FB8F1D;
+}
+
+.header__logo {
+    padding-top: 37px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header__buttons {
+    display: flex;
+    gap: 18px;
+    padding-top: 35px;
+}
+
+.button__login, .button__register {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.button__login {
+    font-family: "Inter",sans-serif;
+    background-color: #fff;
+    border: 2px solid #FB8F1D;
+    color: #FB8F1D;
+    border-radius: 5px;
+    width: 132px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.button__login:hover{
+    background-color:#FB8F1D;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.button__register {
+    font-family: "Inter",sans-serif;
+    background-color: #FB8F1D;
+    color: white;
+    border-radius: 8px;
+    width: 132px;
+    height: 44px;
+}
+
+.button__register:hover{
+    background-color: #fff;
+    color: #FB8F1D;
+    border: 2px solid;
+    transform: scale(1.1);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: -20px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header__ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+        padding: 50px;
+    }
+
+    .header__ul.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .hamburger > img {
+        max-width: 100%;
+    }
+    
+    .hamburger-icon {
+        width: 40px;
+    }
+    
+    .header__nav {
+        background: #e7ecff;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+        clip-path: circle(0 at top left);
+        transition: clip-path 0.9s ease-in;
+        z-index: 9999; 
+    }
+    
+    .header__nav.open {
+        clip-path: circle(1000px at top);
+    }
+    
+    .header__nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        list-style: none;
+        padding-top: 30px;
+        width: 100vw; 
+    }
+    
+    .header__buttons {
+        order: -1;
+        display: flex;
+        flex-direction: column; 
+        gap: 10px; 
+        align-items: center;
+        margin-left: 40px; 
+        margin-top: 20px;
+    }
+
+    .button__login, .button__register {
+        width: 100%; 
+        text-align: center; 
+    }
+    
+    .header__logo {
+        margin-left: -8 0px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10001;
+    }
+    
+    .header__nav .home a {
+        margin-left: -30px;
+        padding-top: 10vh;
+        flex: 1;
+        font-size: 32px;
+    }
+    
+    .header__nav a {
+        margin-left: -30px;
+        font-weight: 500;
+        display: block;
+        font-size: 32px;
+    }
+    }
