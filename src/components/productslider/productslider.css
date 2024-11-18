@@ -12,7 +12,12 @@
 }
 
 .slick-list {
-    padding-left: 75px;
+    padding-left: 220px; 
+    transition: padding-left 0.8s ease; 
+}
+
+.slider-wrapper.show-all .slick-list {
+    padding-left: 65px; 
 }
 
 .arrow {
@@ -41,7 +46,7 @@
 
 .view-more-wrapper {
     text-align: center;
-    margin-top: 40px; /* Відступ між крапками і кнопкою */
+    margin-top: 40px; 
 }
 
 .view-more-button {

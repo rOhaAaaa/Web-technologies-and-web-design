@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.css';
+import logo from '../../images/logo.webp'; 
 
 const Header = () => {
-  const location = useLocation();
-
   return (
     <header className="header-wrapper">
-      <div className="logo">Cosmetics Store</div>
+      <div className="text-logo">Cosmetics Store</div> 
       <nav className="nav">
         <ul className="nav-list">
           <li><Link to="/">Home</Link></li>
@@ -15,12 +14,9 @@ const Header = () => {
           <li>Cart</li>
         </ul>
       </nav>
-      {location.pathname === '/catalog' && (
-        <div className="search-bar">
-          <input type="text" placeholder="Search" />
-          <span className="search-icon">&#128269;</span>
-        </div>
-      )}
+      <div className="logo">
+        <img src={logo} alt="Cosmetics Store Logo" className="logo-image" /> 
+      </div>
     </header>
   );
 };

@@ -1,6 +1,5 @@
-
 import React from 'react';
-import './PrimaryButton.css'; // Підключіть стилі для кнопки
+import './PrimaryButton.css'; 
 
 const PrimaryButton = ({ label, onClick }) => {
   return (

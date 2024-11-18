@@ -1,5 +1,6 @@
 import React from 'react';
-import './productCard.css'; // Стилі для картки продукту
+import { Link } from 'react-router-dom';
+import './productCard.css';
 
 const ProductCard = ({ product }) => {
   return (
@@ -7,11 +8,10 @@ const ProductCard = ({ product }) => {
       <img src={product.image} alt={product.name} className="product-image" />
       <h2>{product.name}</h2>
       <p>{product.description}</p>
-      <p>
-        <span className="price-label">Price: </span>
-        <span className="price-amount">${product.price}</span>
-      </p>
-      <button>View more</button>
+      <p className="product-price"><strong>Price:</strong> <span className="price-value">${product.price}</span></p> 
+      <Link to={`/catalog/${product.id}`}>
+        <button>View more</button>
+      </Link>
     </div>
   );
 };

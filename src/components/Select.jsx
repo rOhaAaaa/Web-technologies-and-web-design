@@ -1,6 +1,5 @@
-// src/components/Select.jsx
 import React from 'react';
-import './Select.css'; // Підключіть стилі для select
+import './Select.css'; 
 
 const Select = ({ options, onChange }) => {
   return (
