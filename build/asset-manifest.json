@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1942c3a7.css",
+    "main.js": "/static/js/main.0d12895c.js",
+    "static/js/453.ce58f9bb.chunk.js": "/static/js/453.ce58f9bb.chunk.js",
+    "static/media/logo.webp": "/static/media/logo.2946a6d9e374231aa6c7.webp",
+    "static/media/dior.jpg": "/static/media/dior.5456e3e8298eb9700a5f.jpg",
+    "static/media/blush.jpg": "/static/media/blush.e316ae7404149bae5489.jpg",
+    "static/media/oil.jpg": "/static/media/oil.425f1d8e6f0b7c780c4f.jpg",
+    "static/media/gloss.jpg": "/static/media/gloss.adbd58a5ada24b42b127.jpg",
+    "static/media/bronzer.jpg": "/static/media/bronzer.3ebf5b1302918bfa9e80.jpg",
+    "static/media/foundation.jpg": "/static/media/foundation.2264a069a0ab4e7b10f0.jpg",
+    "static/media/mascara.jpg": "/static/media/mascara.87036b268c58d072c51c.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.1942c3a7.css.map": "/static/css/main.1942c3a7.css.map",
+    "main.0d12895c.js.map": "/static/js/main.0d12895c.js.map",
+    "453.ce58f9bb.chunk.js.map": "/static/js/453.ce58f9bb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1942c3a7.css",
+    "static/js/main.0d12895c.js"
+  ]
+}

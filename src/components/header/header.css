@@ -1,0 +1,36 @@
+.header-wrapper {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #d81b60;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav li {
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.center-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-logo img {
+    height: 40px;
+}

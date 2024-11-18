@@ -1,0 +1,40 @@
+.slider-wrapper {
+    padding: 50px;
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.slick-dots {
+    bottom: -25px;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.slick-list {
+    padding-left: 75px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d81b60;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow.left {
+    left: -10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
