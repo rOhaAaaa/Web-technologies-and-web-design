@@ -1,0 +1,50 @@
+.text-center {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+}
+
+#search_button, #calculate_button, #sort_button {
+    padding: 10px 30px;
+    width: 200px;
+    color: white;
+    border-radius: 10px;
+    background-color: #1e90ff;
+    border: 1px solid #1e90ff;
+}
+
+#reset_button {
+    width: 200px;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    background-color: #ff6347;
+    border: 1px solid #ff6347;
+}
+
+.conference_background {
+    background-color: #f4f4f9;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.form-inline {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.item-container__image {
+    max-width: 420px;
+    min-height: 200px;
+    display: block;
+    margin: 0 auto;
+}
