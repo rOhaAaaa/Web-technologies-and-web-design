@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Conference</title>
+
+    <link rel="stylesheet" href="./css/conference.css">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+
+    <!-- UUID library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create New Conference</h1>
+        <form id="create_form">
+            <div class="mb-3">
+                <label for="title_input" class="form-label">Conference Title</label>
+                <input type="text" id="title_input" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="participants_input" class="form-label">Number of Participants</label>
+                <input type="number" id="participants_input" class="form-control" min="1" required>
+            </div>
+            <div class="mb-3">
+                <label for="price_input" class="form-label">Ticket Price ($)</label>
+                <input type="number" id="price_input" class="form-control" min="0" required>
+            </div>
+            <div class="mb-3">
+                <label for="city_input" class="form-label">City</label>
+                <input type="text" id="city_input" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="image_input" class="form-label">Conference Image (URL)</label>
+                <input type="text" id="image_input" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Create Conference</button>
+        </form>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+    <script src="./js/create.js" type="module"></script>
+
+</body>
+</html>
