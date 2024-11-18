@@ -38,3 +38,24 @@
 .arrow.right {
     right: 10px;
 }
+
+.view-more-wrapper {
+    text-align: center;
+    margin-top: 40px; /* Відступ між крапками і кнопкою */
+}
+
+.view-more-button {
+    width: 200px;
+    background-color: #d81b60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-button:hover {
+    background-color: #b01550;
+}

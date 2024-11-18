@@ -1,0 +1,76 @@
+.catalog-container {
+    padding: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .products-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  select {
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #c21858;
+  }
+
+  .filters-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Менший відступ між фільтрами */
+    margin-bottom: 20px;
+    background-color: #f8d7dd; /* Правильний рожевий колір */
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: -20px; /* Прибираємо відступ зліва */
+    width: 100%;
+}
+
+.filter-select {
+    width: 220px; /* Ширина фільтрів */
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:hover {
+    border-color: #d81b60; /* Колір при наведенні */
+}
+
+.filter-button {
+    width: 120px;
+    padding: 8px 20px;
+    background-color: #d81b60; /* Оригінальний колір */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #b0174d; /* Трохи темніше при наведенні */
+}

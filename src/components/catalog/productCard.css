@@ -1,0 +1,75 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black; /* Чорна обводка */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  margin: 15px;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додаємо легку тінь */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #fbfbfb, #fb71a2); /* Градієнтний фон */
+}
+
+
+.product-card:hover {
+  transform: scale(1.05); /* Масштаб при наведенні */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Збільшена тінь при наведенні */
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  color: #777; /* Колір тексту */
+  margin-bottom: auto;
+}
+
+.product-card .price-label {
+  color: black; /* Чорний текст для слова "Price" */
+}
+
+.product-card .price-amount {
+  color: #777; /* Оригінальний колір для суми */
+}
+
+.product-card button {
+  background-color: #d81b60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  align-self: center;
+  width: 100%;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.product-card button:hover {
+  background-color: #c21858;
+  transform: translateY(-3px); /* Піднімаємо кнопку при наведенні */
+}
+
+.products-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+

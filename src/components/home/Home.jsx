@@ -1,16 +1,13 @@
 import React from 'react';
-import Header from './components/header/Header';
-import MainBanner from './components/mainbanner/MainBanner';
-import ProductSlider from './components/productslider/ProductSlider'; 
-import Footer from './components/footer/Footer';
+import MainBanner from '../mainbanner/MainBanner';
+import ProductSlider from '../productslider/ProductSlider';
+
 
 const Home = () => {
     return (
     <>
-        <Header />
         <MainBanner />
         <ProductSlider />
-        <Footer />
     </>
     );
 };

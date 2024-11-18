@@ -1,6 +1,6 @@
 .header-wrapper {
     background-color: #ffffff;
-    padding: 20px 40px;
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,26 +11,61 @@
     font-size: 1.8em;
     font-weight: bold;
     color: #d81b60;
+    margin-left: 40px;
 }
 
-.nav ul {
+.nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-list {
     display: flex;
+    justify-content: center;
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.nav li {
+.nav-list li {
     margin: 0 15px;
     cursor: pointer;
     font-size: 1.2em;
     color: #555;
 }
 
-.center-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.nav-list li a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.center-logo img {
-    height: 40px;
+.nav-list li a:hover {
+    color: #d81b60;
+}
+
+.search-bar {
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    width: 200px;
+    padding: 5px 10px 5px 30px; /* Відступ для іконки */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #d81b60;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
 }

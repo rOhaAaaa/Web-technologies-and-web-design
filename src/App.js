@@ -1,19 +1,20 @@
 import React from 'react';
-
-import Header from './components/header/Header';
-import MainBanner from './components/mainbanner/MainBanner';
-import ProductSlider from './components/productslider/ProductSlider'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import Home from './components/home/Home';
+import Catalog from './components/catalog/Catalog'; // Твоя нова сторінка каталогу
 import Footer from './components/footer/Footer';
-
+import Header from './components/header/Header';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <MainBanner />
-      <ProductSlider />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

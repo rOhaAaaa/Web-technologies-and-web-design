@@ -1,0 +1,15 @@
+.custom-select {
+    width: 220px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .custom-select:hover {
+    border-color: #d81b60;
+  }
+  
