@@ -1,0 +1,66 @@
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header__ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    padding-top: 35px;
+    color: #202336;
+    font-weight: 500;
+}
+.header__ul .home a {
+    color: #202336;
+    font-family: "Inter",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header__ul a {
+    font-family: "Inter",sans-serif;
+    text-decoration: none;
+    color:#B8BECD;
+    font-size: 16px;
+}
+
+.header__logo {
+    padding-top: 37px;
+}
+
+.header__buttons {
+    display: flex;
+    gap: 18px;
+    padding-top: 35px;
+}
+
+.button__login, .button__register {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button__login {
+    font-family: "Inter",sans-serif;
+    background-color: #fff;
+    border: 2px solid #FB8F1D;
+    color: #FB8F1D;
+    border-radius: 5px;
+    width: 132px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.button__register {
+    font-family: "Inter",sans-serif;
+    background-color: #FB8F1D;
+    color: white;
+    border-radius: 8px;
+    width: 132px;
+    height: 44px;
+}

@@ -1,0 +1,88 @@
+.hero {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1200px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.hero__element {
+    width: 16.038px;
+    height: 16px;
+    transform: rotate(9.99deg);
+    fill: #FDD08D;
+    position: absolute;
+    top: 232px; 
+    right: 197.43px; 
+    left: 1350px;
+    bottom: 2433.46px;
+}
+
+.hero__element2 {
+    width: 20.048px;
+    height: 20px;
+    transform: rotate(20.418deg);
+    fill: #FDD08D;
+    position: absolute;
+    top: 600px; 
+    right: 961.23px; 
+    left: 640   px;
+    bottom: 2043.26px;
+}
+
+.hero__element3 {
+    width: 19.958px;
+    height: 20px;
+    fill: linear-gradient(156deg, #BFF0DD 12.18%, #57D2A3 87.99%);
+    position: absolute;
+    top: 250px; 
+    right: 242px; 
+    left: 270px;
+    bottom: 2384px;
+}
+
+.hero__title h1 {
+    color: #000;
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px; 
+}
+
+.hero__title p {
+    color: #7D7987;
+    font-family: Mulish;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px; 
+}
+
+.content__image {
+    width: 592px;
+    height: 542px;
+    padding-left: 80px;
+}
+
+.button_download {
+    border-radius: 8px;
+    background: #FB8F1D;
+    width: 164px;
+    height: 48px;
+    border: none;
+    margin-top: 39px;
+}
+
+.button_download {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.hero .section__guides {
+    padding: 0px; 
+}
