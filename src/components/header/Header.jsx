@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import './header.css';
 import logo from '../../images/logo.webp'; 
 
@@ -11,7 +11,7 @@ const Header = () => {
         <ul className="nav-list">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/catalog">Catalog</Link></li>
-          <li>Cart</li>
+          <li><Link to="/cart">Cart</Link></li> 
         </ul>
       </nav>
       <div className="logo">

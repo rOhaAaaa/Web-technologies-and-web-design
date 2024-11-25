@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/actions';
 import './item.css';
 
 const Item = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [item, setItem] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('Select'); 
+  const [quantity, setQuantity] = useState(1);  
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -15,16 +20,29 @@ const Item = () => {
           throw new Error('Product not found');
         }
         const data = await response.json();
-        setItem(data); 
+        setItem(data);
       } catch (error) {
         console.error('Error fetching product data:', error);
       }
     };
 
-    fetchItem(); 
-  }, [id]); 
+    fetchItem();
+  }, [id]);
 
   if (!item) return <div>Loading...</div>;
+
+  const handleAddToCart = () => {
+    const product = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      quantity: quantity,  
+      option: selectedOption  
+    };
+    dispatch(addToCart(product));
+    navigate('/cart');
+  };
 
   return (
     <div className="item-page">
@@ -38,18 +56,37 @@ const Item = () => {
         <div className="item-actions">
           <div className="field-group">
             <label htmlFor="countable-field" className="field-label">Countable field</label>
-            <input type="number" min="1" defaultValue="1" id="countable-field" className="countable-field" />
+            <input
+              type="number"
+              min="1"
+              value={quantity}  
+              onChange={(e) => setQuantity(Number(e.target.value))}  
+              id="countable-field"
+              className="countable-field"
+            />
           </div>
           <div className="field-group">
             <label htmlFor="selectable-field" className="field-label">Selectable Field</label>
-            <select id="selectable-field" className="selectable-field">
+            <select
+              id="selectable-field"
+              className="selectable-field"
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}  
+            >
               <option>Select</option>
+              <option>Shade - Light</option>
+              <option>Shade - Medium</option>
+              <option>Shade - Dark</option>
+              <option>Shade - Very Dark</option>
+              <option>Finish - Matte</option>
+              <option>Finish - Dewy</option>
+              <option>Finish - Natural</option>
             </select>
           </div>
         </div>
         <div className="item-buttons">
           <button className="back-button" onClick={() => navigate(-1)}>Go back</button>
-          <button className="add-button">Add to cart</button>
+          <button className="add-button" onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
     </div>
