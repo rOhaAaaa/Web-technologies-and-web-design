@@ -35,11 +35,4 @@ All requirements from previous React.js assignments should be adhered to.
    - Use the `useDispatch` hook for dispatching actions.
      - [Official Docs: useDispatch Examples](https://react-redux.js.org/api/hooks#usedispatch)
 
----
 
-## Getting Started
-### Installation
-1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-folder>
