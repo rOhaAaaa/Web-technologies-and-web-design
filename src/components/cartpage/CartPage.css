@@ -26,6 +26,7 @@
     cursor: pointer;
     border-radius: 5px;
     font-family: 'Arial', sans-serif;
+    max-width: 120px;
   }
   
   .continue-button:hover {
@@ -97,7 +98,7 @@
     gap: 10px;
     justify-content: center; 
     flex-grow: 1;
-    margin-right: 440px; 
+    margin-right: 510px; 
   }
   
   .quantity-controls button {

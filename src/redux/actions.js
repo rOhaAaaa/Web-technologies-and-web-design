@@ -2,23 +2,31 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const INCREMENT_ITEM = 'INCREMENT_ITEM';
 export const DECREMENT_ITEM = 'DECREMENT_ITEM';
+export const CLEAR_CART = 'CLEAR_CART'; 
 
-export const addToCart = (product) => ({
-type: ADD_TO_CART,
-payload: product
-});
+export const addToCart = (product, selectedOption) => {
+const uniqueProductId = `${product.id}-${selectedOption}`; 
+return {
+    type: ADD_TO_CART,
+    payload: { ...product, uniqueProductId, option: selectedOption }
+};
+};
 
-export const removeFromCart = (id) => ({
+export const removeFromCart = (uniqueProductId) => ({
 type: REMOVE_FROM_CART,
-payload: id
+payload: uniqueProductId
 });
 
-export const incrementItem = (id) => ({
+export const incrementItem = (uniqueProductId) => ({
 type: INCREMENT_ITEM,
-payload: id
+payload: uniqueProductId
 });
 
-export const decrementItem = (id) => ({
+export const decrementItem = (uniqueProductId) => ({
 type: DECREMENT_ITEM,
-payload: id
+payload: uniqueProductId
+});
+
+export const clearCart = () => ({
+type: CLEAR_CART  
 });

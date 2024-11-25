@@ -38,9 +38,8 @@ const Item = () => {
       price: item.price,
       image: item.image,
       quantity: quantity,  
-      option: selectedOption  
     };
-    dispatch(addToCart(product));
+    dispatch(addToCart(product, selectedOption));  
     navigate('/cart');
   };
 

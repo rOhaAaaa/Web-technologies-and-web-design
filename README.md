@@ -1,7 +1,7 @@
-# Redux: Cart Page (Shopping Cart)
+# React.js: Formik - Cart Page (Checkout & Success)
 
 ## Description
-You are on your way to completing this exciting project! This task involves creating the first of three cart pages - the **Shopping Cart page**. In this project, you will also be introduced to **Redux**, one of the most popular libraries for React state management.
+Complete your project by creating the final two pages of your shopping cart: **Checkout** and **Success** pages. This step introduces **Formik**, a powerful form validation library, to create and validate the checkout form.
 
 ## Variants
 The list of products you are "selling" is the same as the previous works. (Refer to the description in the 3rd assignment for product details.)
@@ -11,28 +11,26 @@ The list of products you are "selling" is the same as the previous works. (Refer
 ## Requirements
 
 ### General Requirements
-All requirements from previous React.js assignments should be adhered to.
+All requirements from previous React.js assignments should be met.
 
 ### Functionality
-1. **Item Page:**
-   - Implement the **"Add to Cart"** action using Redux flow:
-     - When you add an item to the cart, it should be stored in the Redux store.
-   - On the **Cart page**, retrieve all items from the Redux store.
+1. **Form Validation:**
+   - Your form must have at least **5 fields**.
+   - Every field must include a validation rule beyond just "required":
+     - Examples: Maximum length, no special characters, numeric-only fields, etc.
+   - At least one field must use **RegEx** for validation.
+   - At least one field must accept non-string values (e.g., phone numbers).
 
-2. **Cart Page:**
-   - Implement **"Add"** and **"Remove"** item actions using Redux:
-     - Use Redux **actions** and **reducers** for managing these functionalities.
+2. **Error Messages:**
+   - Clearly describe all validation errors with specific reasons (e.g., "Email is incorrect," "First name is a required field").
+   - The error message should be implemented as a separate React component.
+
+3. **Form Submission:**
+   - Upon successful form submission, redirect the user to a **Success page**.
 
 ### Code Style
-1. **Redux Structure:**
-   - Keep all Redux parts in separate and specific files:
-     - `actions.js`
-     - `reducers.js`
-     - `store.js`
-2. **React-Redux Hooks:**
-   - Use the `useSelector` hook for accessing data from the Redux store.
-     - [Official Docs: useSelector Examples](https://react-redux.js.org/api/hooks#useselector-examples)
-   - Use the `useDispatch` hook for dispatching actions.
-     - [Official Docs: useDispatch Examples](https://react-redux.js.org/api/hooks#usedispatch)
-
+- **Formik & Yup:**
+  - Use **Formik** for handling form state and validation.
+  - Use **Yup** for defining validation schemas.
+  - Reference: [Formik + Yup Tutorial](https://youtu.be/3sXYK60T6Us?t=390).
 

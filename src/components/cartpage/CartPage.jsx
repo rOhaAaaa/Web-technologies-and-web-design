@@ -15,22 +15,22 @@ const CartPage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));  
   }, [cart]);
 
-  const handleRemove = (productId) => {
-    dispatch(removeFromCart(productId));
+  const handleRemove = (uniqueProductId) => {
+    dispatch(removeFromCart(uniqueProductId));
     setError(''); 
   };
 
-  const handleQuantityChange = (productId, operation) => {
-    const product = cart.find(item => item.id === productId);
+  const handleQuantityChange = (uniqueProductId, operation) => {
+    const product = cart.find(item => item.uniqueProductId === uniqueProductId);
     if (operation === 'increment') {
       if (product.quantity < 10) {  
-        dispatch(incrementItem(productId));
+        dispatch(incrementItem(uniqueProductId));
         setError(''); 
       } else {
         setError('Cannot add more than 10 items of this product.');
       }
     } else if (operation === 'decrement') {
-      dispatch(decrementItem(productId));
+      dispatch(decrementItem(uniqueProductId));
       setError(''); 
     }
   };
@@ -40,10 +40,10 @@ const CartPage = () => {
   return (
     <div className="cart-container">
       <h1>Shopping Cart</h1>
-      {error && <div className="error-message">{error}</div>}  
+      {error && <div className="error-message">{error}</div>} 
       <div className="cart-items">
         {cart.map(product => (
-          <div key={product.id} className="cart-item">
+          <div key={product.uniqueProductId} className="cart-item">
             <img src={product.image} alt={product.name} className="product-image" />
             <div className="product-info">
               <h2>{product.name}</h2>
@@ -51,11 +51,11 @@ const CartPage = () => {
               <p>Option: {product.option}</p>
             </div>
             <div className="quantity-controls">
-              <button onClick={() => handleQuantityChange(product.id, 'decrement')}>-</button>
+              <button onClick={() => handleQuantityChange(product.uniqueProductId, 'decrement')}>-</button>
               <span>{product.quantity}</span>
-              <button onClick={() => handleQuantityChange(product.id, 'increment')}>+</button>
+              <button onClick={() => handleQuantityChange(product.uniqueProductId, 'increment')}>+</button>
             </div>
-            <button onClick={() => handleRemove(product.id)} className="remove-button">Remove</button>
+            <button onClick={() => handleRemove(product.uniqueProductId)} className="remove-button">Remove</button>
           </div>
         ))}
       </div>
@@ -64,7 +64,7 @@ const CartPage = () => {
       </div>
       <div className="actions">
         <button className="back-button" onClick={() => navigate('/catalog')}>Back to Catalog</button>
-        <button className="continue-button">Continue</button>
+        <button className="continue-button" onClick={() => navigate('/checkout')}>Continue</button>
       </div>
     </div>
   );

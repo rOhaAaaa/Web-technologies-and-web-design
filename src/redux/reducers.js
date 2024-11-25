@@ -1,43 +1,47 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, INCREMENT_ITEM, DECREMENT_ITEM } from './actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, INCREMENT_ITEM, DECREMENT_ITEM, CLEAR_CART } from './actions';
 
 const initialState = {
   cart: JSON.parse(localStorage.getItem('cart')) || []  
 };
 
 const cartReducer = (state = initialState, action) => {
+  let updatedCart;
+
   switch (action.type) {
     case ADD_TO_CART:
-      const existingItemIndex = state.cart.findIndex(item => item.id === action.payload.id);
+      const existingItemIndex = state.cart.findIndex(item => item.uniqueProductId === action.payload.uniqueProductId);
+
       if (existingItemIndex >= 0) {
-        const updatedCart = [...state.cart];
-        updatedCart[existingItemIndex].quantity += action.payload.quantity; 
-        return { ...state, cart: updatedCart };
+        updatedCart = [...state.cart];
+        updatedCart[existingItemIndex].quantity += action.payload.quantity;
       } else {
-        return { ...state, cart: [...state.cart, { ...action.payload }] }; 
+        updatedCart = [...state.cart, action.payload];
       }
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return { ...state, cart: updatedCart };
 
     case REMOVE_FROM_CART:
-      return { ...state, cart: state.cart.filter(item => item.id !== action.payload) };
+      updatedCart = state.cart.filter(item => item.uniqueProductId !== action.payload);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return { ...state, cart: updatedCart };
 
     case INCREMENT_ITEM:
-      return {
-        ...state,
-        cart: state.cart.map(item =>
-          item.id === action.payload
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      };
+      updatedCart = state.cart.map(item =>
+        item.uniqueProductId === action.payload ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return { ...state, cart: updatedCart };
 
     case DECREMENT_ITEM:
-      return {
-        ...state,
-        cart: state.cart.map(item =>
-          item.id === action.payload && item.quantity > 1
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-      };
+      updatedCart = state.cart.map(item =>
+        item.uniqueProductId === action.payload && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return { ...state, cart: updatedCart };
+
+    case CLEAR_CART:
+      localStorage.removeItem('cart');
+      return { ...state, cart: [] };
 
     default:
       return state;
