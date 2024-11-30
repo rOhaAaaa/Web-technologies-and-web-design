@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import ProductCard from './ProductCard'; 
 import PrimaryButton from '../PrimaryButton'; 
 import Select from '../Select'; 
@@ -38,16 +38,14 @@ const Catalog = () => {
     }
   };
 
-  const debouncedFetchProducts = useCallback(debounce(() => {
-    fetchProducts();
-  }, 300), [filter, minPrice, maxPrice, searchQuery]); 
+  const debouncedFetchProducts = debounce(fetchProducts, 300);
 
   useEffect(() => {
     debouncedFetchProducts();
     return () => {
       debouncedFetchProducts.cancel();
     };
-  }, [debouncedFetchProducts]); 
+  }, [filter, minPrice, maxPrice, searchQuery]); 
 
   const filterOptions = ['All', 'Makeup', 'Lip Care', 'Perfumes', 'Skincare'];
 
