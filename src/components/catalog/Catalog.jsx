@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; 
 import ProductCard from './ProductCard'; 
 import PrimaryButton from '../PrimaryButton'; 
 import Select from '../Select'; 
@@ -43,7 +43,7 @@ const Catalog = () => {
   useEffect(() => {
     debouncedFetchProducts();
     return () => {
-      debouncedFetchProducts.cancel(); 
+      debouncedFetchProducts.cancel();
     };
   }, [debouncedFetchProducts]); 
 
