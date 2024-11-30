@@ -38,7 +38,9 @@ const Catalog = () => {
     }
   };
 
-  const debouncedFetchProducts = useCallback(debounce(fetchProducts, 300), [filter, minPrice, maxPrice, searchQuery]);
+  const debouncedFetchProducts = useCallback(debounce(() => {
+    fetchProducts();
+  }, 300), [filter, minPrice, maxPrice, searchQuery]); 
 
   useEffect(() => {
     debouncedFetchProducts();
